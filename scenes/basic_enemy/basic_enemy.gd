@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MAX_SPEED : float = 30.0
 
 
-func _process(delta):
+func _process(_delta):
 	var direction = get_direction_to_player()
 	velocity = direction * MAX_SPEED
 	move_and_slide()
