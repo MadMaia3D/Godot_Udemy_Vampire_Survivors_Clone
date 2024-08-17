@@ -1,9 +1,6 @@
 extends CharacterBody2D
 
-const MAX_SPEED : float = 50.0
-
-func _ready():
-	pass
+const MAX_SPEED : float = 40.0
 
 
 func _process(_delta):
