@@ -23,10 +23,14 @@ func on_timer_timeout():
 	if enemies.size() == 0: return
 	
 	enemies.sort_custom(sort_by_distance)
+	var target_enemy: Node2D = enemies[0]
 	
-	var sword_instance = sword_ability.instantiate() as Node2D
+	var sword_instance: Node2D = sword_ability.instantiate() as Node2D
 	player.get_parent().add_child(sword_instance)
-	sword_instance.global_position = enemies[0].global_position
+	sword_instance.global_position = target_enemy.global_position
+	var enemy_direction: Vector2 = target_enemy.global_position - player.global_position
+	sword_instance.rotation = enemy_direction.angle()
+	sword_instance.move_local_x(-30.0)
 
 
 
