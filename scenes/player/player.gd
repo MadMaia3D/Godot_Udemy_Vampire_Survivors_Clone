@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MAX_SPEED : float = 40.0
 
 
-func _process(_delta):
+func _process(delta):
 	var movement_vector = get_movement_vector()
 	var direction = movement_vector.normalized()
 	velocity = direction * MAX_SPEED

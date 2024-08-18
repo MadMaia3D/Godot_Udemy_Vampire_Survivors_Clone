@@ -7,7 +7,7 @@ func _ready():
 	$HurtBox.connect("area_entered", on_area_entered)
 
 
-func _process(_delta):
+func _process(delta):
 	var direction = get_direction_to_player()
 	velocity = direction * MAX_SPEED
 	move_and_slide()
@@ -20,5 +20,5 @@ func get_direction_to_player() -> Vector2:
 	return Vector2.ZERO
 
 
-func on_area_entered(_area: Area2D) -> void:
+func on_area_entered(area: Area2D) -> void:
 	queue_free()
