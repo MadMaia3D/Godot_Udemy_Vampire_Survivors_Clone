@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cil0x57cguvyl"]
+[gd_scene load_steps=7 format=3 uid="uid://cil0x57cguvyl"]
 
+[ext_resource type="PackedScene" uid="uid://b71yqdckvtbsq" path="res://scenes/UI/arena_timer_ui.tscn" id="1_01ngb"]
 [ext_resource type="PackedScene" uid="uid://bjg5aqnj6jy0t" path="res://scenes/manager/enemy_manager.tscn" id="1_gxl3b"]
 [ext_resource type="PackedScene" uid="uid://be0ckjdt1xlyr" path="res://scenes/player/player.tscn" id="1_iic7x"]
 [ext_resource type="TileSet" uid="uid://jwqo7057nygh" path="res://resources/tileset.tres" id="1_uo8et"]
+[ext_resource type="PackedScene" uid="uid://dxxr1ai2vff21" path="res://scenes/manager/arena_time_manager.tscn" id="2_dwwy4"]
 [ext_resource type="PackedScene" uid="uid://dkhix3t5rvgwt" path="res://scenes/game_camera/game_camera.tscn" id="3_s4bw7"]
 
 [node name="Main" type="Node"]
+
+[node name="ArenaTimerUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_01ngb")]
+arena_time_manager = NodePath("../ArenaTimeManager")
+
+[node name="ArenaTimeManager" parent="." instance=ExtResource("2_dwwy4")]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_s4bw7")]
 zoom = Vector2(3, 3)
