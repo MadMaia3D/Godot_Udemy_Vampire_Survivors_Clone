@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main/main.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameEvents="*res://scenes/autoload/game_events.tscn"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
@@ -56,6 +60,7 @@ move_right={
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="Enemy_Hitbox"
 2d_physics/layer_7="Enemy_Hurtbox"
+2d_physics/layer_8="PlayerPickup"
 
 [rendering]
 

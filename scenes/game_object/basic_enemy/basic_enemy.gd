@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const MAX_SPEED : float = 30.0
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 
 func _ready():
 	$HurtBox.connect("area_entered", on_area_entered)
@@ -20,5 +22,5 @@ func get_direction_to_player() -> Vector2:
 	return Vector2.ZERO
 
 
-func on_area_entered(area: Area2D) -> void:
-	queue_free()
+func on_area_entered(other_area: Area2D) -> void:
+	health_component.damage(100)
