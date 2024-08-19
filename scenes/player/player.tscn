@@ -9,7 +9,8 @@ radius = 2.0
 height = 10.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 0
+collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_kgjgx")
 
 [node name="AbilityManager" type="Node" parent="."]

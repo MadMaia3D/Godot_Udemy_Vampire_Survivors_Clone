@@ -10,11 +10,13 @@ radius = 11.0
 radius = 6.0
 
 [node name="BasicEnemy" type="CharacterBody2D" groups=["enemies"]]
-collision_layer = 0
+collision_layer = 16
+collision_mask = 17
+motion_mode = 1
 script = ExtResource("1_t822g")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
