@@ -2,12 +2,13 @@ extends Node
 class_name ExperienceManager
 
 signal experience_updated(current_experience: float, target_experience: float)
+signal level_up(new_level: int)
 
 const TARGET_EXPERIENCE_GROWTH = 5
 
 var current_experience: float = 0
 var current_level: int = 1
-var target_experience: float = 5
+var target_experience: float = 1
 
 
 func _ready():
@@ -23,6 +24,7 @@ func increment_experience(value: float) -> void:
 		current_level +=1
 		target_experience += TARGET_EXPERIENCE_GROWTH
 		experience_updated.emit(current_experience, target_experience)
+		level_up.emit(current_level)
 
 
 
