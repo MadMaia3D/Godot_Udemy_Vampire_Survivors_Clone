@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh3vsmlw7w1hm"]
+[gd_scene load_steps=10 format=3 uid="uid://bh3vsmlw7w1hm"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_kgjgx"]
 [ext_resource type="Texture2D" uid="uid://6fl60wxxhuou" path="res://scenes/game_object/player/player.png" id="1_lqeqw"]
 [ext_resource type="PackedScene" uid="uid://cdcunraded4fa" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_ac18d"]
 [ext_resource type="PackedScene" uid="uid://d0es24e6rkh5j" path="res://scenes/component/health_component.tscn" id="2_ahkqx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2yug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obisx"]
+bg_color = Color(0.909804, 0.270588, 0.215686, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3xds"]
 radius = 2.0
@@ -27,8 +32,22 @@ script = ExtResource("1_kgjgx")
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_ac18d")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 one_shot = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(20, 3)
+offset_left = -10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 6.0
+pivot_offset = Vector2(10, 1.5)
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_k2yug")
+theme_override_styles/fill = SubResource("StyleBoxFlat_obisx")
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
