@@ -13,6 +13,7 @@ func _physics_process(delta):
 	label.text = format_seconds_to_string(remaining_time)
 
 
+
 func format_seconds_to_string(seconds: float):
 	var minutes: int = floor(seconds / 60)
 	var remaining_seconds: int = floor(fmod(seconds, 60))

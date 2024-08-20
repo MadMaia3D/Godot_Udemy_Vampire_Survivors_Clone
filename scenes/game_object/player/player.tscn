@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cdcunraded4fa" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_ac18d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5ujs"]
-radius = 49.0102
+radius = 16.1245
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3xds"]
 radius = 2.0

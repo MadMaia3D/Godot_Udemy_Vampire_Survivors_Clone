@@ -19,6 +19,7 @@ motion_mode = 1
 script = ExtResource("1_t822g")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_wqfwo")]
+max_health = 5
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_i4f1s")]
 health_component = NodePath("../HealthComponent")
