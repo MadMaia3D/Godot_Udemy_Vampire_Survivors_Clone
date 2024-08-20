@@ -4,11 +4,11 @@ class_name ExperienceManager
 signal experience_updated(current_experience: float, target_experience: float)
 signal level_up(new_level: int)
 
-const TARGET_EXPERIENCE_GROWTH = 1
+const TARGET_EXPERIENCE_GROWTH = 15
 
 var current_experience: float = 0
 var current_level: int = 1
-var target_experience: float = 1
+var target_experience: float = 15
 
 
 func _ready():

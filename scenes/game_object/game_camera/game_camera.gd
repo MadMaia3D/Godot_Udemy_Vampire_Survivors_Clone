@@ -10,6 +10,8 @@ func _ready():
 
 
 func _process(delta):
+	if target == null:
+		return
 	global_position = global_position.lerp(target.global_position, 1.0 - exp(-delta * 20))
 
 

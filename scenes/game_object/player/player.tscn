@@ -1,24 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh3vsmlw7w1hm"]
+[gd_scene load_steps=8 format=3 uid="uid://bh3vsmlw7w1hm"]
 
 [ext_resource type="Script" path="res://scenes/game_object/player/player.gd" id="1_kgjgx"]
 [ext_resource type="Texture2D" uid="uid://6fl60wxxhuou" path="res://scenes/game_object/player/player.png" id="1_lqeqw"]
 [ext_resource type="PackedScene" uid="uid://cdcunraded4fa" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="2_ac18d"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_u5ujs"]
-radius = 16.1245
+[ext_resource type="PackedScene" uid="uid://d0es24e6rkh5j" path="res://scenes/component/health_component.tscn" id="2_ahkqx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3xds"]
 radius = 2.0
 height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5ujs"]
+radius = 16.1245
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhf5p"]
+radius = 9.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_kgjgx")
 
+[node name="HealthComponent" parent="." instance=ExtResource("2_ahkqx")]
+
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_ac18d")]
+
+[node name="DamageIntervalTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k3xds")
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 128
@@ -28,12 +43,15 @@ collision_mask = 0
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_u5ujs")
 
+[node name="DamageArea2D" type="Area2D" parent="."]
+position = Vector2(0, -6.735)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea2D"]
+shape = SubResource("CircleShape2D_qhf5p")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_lqeqw")
 offset = Vector2(0, -8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_k3xds")
