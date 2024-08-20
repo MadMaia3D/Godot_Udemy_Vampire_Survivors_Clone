@@ -31,7 +31,8 @@ func on_timer_timeout():
 	var target_enemy: Node2D = enemies[0]
 	
 	var sword_instance: SwordAbility = sword_ability.instantiate() as SwordAbility
-	player.get_parent().add_child(sword_instance)
+	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
+	foreground_layer.add_child(sword_instance)
 	sword_instance.hitbox_component.damage = damage
 	sword_instance.global_position = target_enemy.global_position
 	var enemy_direction: Vector2 = target_enemy.global_position - player.global_position
