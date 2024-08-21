@@ -1,15 +1,26 @@
 extends Node
 
-var spawn_radius = 250
 
 @export var basic_enemy_scene: PackedScene
+@export var arena_time_manager: Node
+
+var spawn_radius = 250
+var timer_base_time: float
+
+@onready var timer = $Timer
 
 
 func _ready():
-	$Timer.timeout.connect(on_timer_timeout)
+	connect_signals()
+	timer_base_time = timer.wait_time
 
 
-func on_timer_timeout():
+func connect_signals() -> void:
+	timer.timeout.connect(on_timer_timeout)
+	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
+
+
+func spawn_enemy() -> void:
 	var player: Node2D = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
@@ -22,3 +33,12 @@ func on_timer_timeout():
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy_instance)
 	enemy_instance.global_position = spawn_position
+
+
+func on_timer_timeout():
+	spawn_enemy()
+
+
+func on_arena_difficulty_increased(arena_difficult: int):
+	var next_difficulty_wait_time = timer_base_time - arena_difficult * 0.05
+	timer.wait_time = max(next_difficulty_wait_time, 0.3)
