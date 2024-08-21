@@ -25,14 +25,28 @@ func spawn_enemy() -> void:
 	if player == null:
 		return
 	
-	var random_angle: float = randf_range(-PI, PI)
-	var random_direction: Vector2 = Vector2.RIGHT.rotated(random_angle)
-	var spawn_position: Vector2 = player.global_position + (random_direction * spawn_radius)
+	var spawn_position: Vector2 = get_spawn_position(player)
+	while spawn_position == Vector2.ZERO:
+		spawn_position = get_spawn_position(player)
 	
 	var enemy_instance: Node2D = basic_enemy_scene.instantiate() as Node2D
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy_instance)
 	enemy_instance.global_position = spawn_position
+
+
+func get_spawn_position(player: Node2D) -> Vector2:
+	var random_angle: float = randf_range(-PI, PI)
+	var random_direction: Vector2 = Vector2.RIGHT.rotated(random_angle)
+	var spawn_position: Vector2 = player.global_position + (random_direction * spawn_radius)
+	
+	var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1)
+	var intersection: Dictionary = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
+	
+	if intersection.is_empty():
+		return spawn_position
+	else:
+		return Vector2.ZERO
 
 
 func on_timer_timeout():
