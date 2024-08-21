@@ -8,6 +8,7 @@ var number_colliding_bodies: int = 0
 @onready var damage_interval_timer = $DamageIntervalTimer
 @onready var health_component = $HealthComponent
 @onready var health_bar = $HealthBar
+@onready var abilities = $Abilities
 
 
 func _ready():
@@ -21,6 +22,7 @@ func connect_signals() -> void:
 	damage_area_2d.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
 	health_component.health_changed.connect(on_health_changed)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 
 func _process(delta):
@@ -64,4 +66,10 @@ func on_damage_interval_timer_timeout():
 
 func on_health_changed() -> void:
 	update_health_display()
+	
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
+	if not upgrade is Ability:
+		return
+	var new_ability: Ability = upgrade as Ability
+	abilities.add_child(new_ability.ability_controller_scene.instantiate())
 	

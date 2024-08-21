@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://qql0t14vem1x"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://qql0t14vem1x"]
 
-[ext_resource type="Script" path="res://resources/upgrades/ability_upgrade.gd" id="1_yqoad"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="1_14ykc"]
+[ext_resource type="PackedScene" uid="uid://bxq7ese3i3etm" path="res://scenes/abilities/axe_ability_controller/axe_ability_controller.tscn" id="1_i21iv"]
 
 [resource]
-script = ExtResource("1_yqoad")
+script = ExtResource("1_14ykc")
+ability_controller_scene = ExtResource("1_i21iv")
 id = "axe"
+max_quantity = 1
 name = "Axe"
 description = "Spins around the hero while hitting near enemies."
