@@ -54,5 +54,5 @@ func on_timer_timeout():
 
 
 func on_arena_difficulty_increased(arena_difficult: int):
-	var next_difficulty_wait_time = timer_base_time - arena_difficult * 0.05
+	var next_difficulty_wait_time = timer_base_time - arena_difficult * 0.1
 	timer.wait_time = max(next_difficulty_wait_time, 0.3)

@@ -60,5 +60,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		return
 	timer.wait_time *= 0.9
 	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-	timer.wait_time = base_wait_time * (1 - percent_reduction)
+	var new_wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
+	timer.wait_time = new_wait_time
 	timer.start()
