@@ -20,6 +20,10 @@ func _ready():
 
 
 func on_timer_timeout():
+	spawn_sword_ability()
+
+
+func spawn_sword_ability() -> void:
 	if player == null: return
 	
 	var enemies = get_tree().get_nodes_in_group("enemies")
