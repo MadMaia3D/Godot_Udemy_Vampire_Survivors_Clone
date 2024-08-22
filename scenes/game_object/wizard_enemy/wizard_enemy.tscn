@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bqin2f52hm286" path="res://scenes/component/velocity_component.tscn" id="2_jtunw"]
 [ext_resource type="PackedScene" uid="uid://d0es24e6rkh5j" path="res://scenes/component/health_component.tscn" id="3_68hal"]
 [ext_resource type="PackedScene" uid="uid://dbthac618xo0g" path="res://scenes/component/vial_drop_component.tscn" id="4_8ynga"]
-[ext_resource type="PackedScene" uid="uid://bwmc80xjv73b2" path="res://scenes/component/hit_flash_component.tscn" id="5_kbyrn"]
+[ext_resource type="PackedScene" uid="uid://ebnu2xvo0xub" path="res://scenes/component/hit_flash_component.tscn" id="5_kbyrn"]
 [ext_resource type="PackedScene" uid="uid://deklgkp8kbyta" path="res://scenes/component/hurtbox_component.tscn" id="5_pa586"]
 [ext_resource type="PackedScene" uid="uid://bke4jygbbry0t" path="res://scenes/component/death_component.tscn" id="5_r6voe"]
-[ext_resource type="Shader" path="res://scenes/component/hit_flash_component_shader.gdshader" id="6_7p8fe"]
+[ext_resource type="Shader" path="res://scenes/component/hit_flash_component_shader.gdshader" id="6_21ami"]
 [ext_resource type="Texture2D" uid="uid://brq7j5ruq7epp" path="res://scenes/game_object/wizard_enemy/wizard_enemy.png" id="6_sxntb"]
 
 [sub_resource type="Animation" id="Animation_odisj"]
@@ -73,9 +73,9 @@ _data = {
 "walk": SubResource("Animation_0wptq")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s08rb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8m1rs"]
 resource_local_to_scene = true
-shader = ExtResource("6_7p8fe")
+shader = ExtResource("6_21ami")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64smv"]
@@ -106,7 +106,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("sprite_2d", "health_component") instance=ExtResource("5_kbyrn")]
 sprite_2d = NodePath("../Visuals/Sprite2D")
 health_component = NodePath("../HealthComponent")
-hit_material = SubResource("ShaderMaterial_s08rb")
+hit_material = SubResource("ShaderMaterial_8m1rs")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_r6voe")]
 texture = ExtResource("6_sxntb")
@@ -119,7 +119,6 @@ texture = ExtResource("6_sxntb")
 offset = Vector2(0, -7)
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_pa586")]
-visible = false
 collision_layer = 64
 collision_mask = 4
 health_component = NodePath("../HealthComponent")
@@ -129,6 +128,5 @@ position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_64smv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_gebja")
