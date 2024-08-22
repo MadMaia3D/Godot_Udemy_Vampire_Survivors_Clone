@@ -1,10 +1,15 @@
 extends Node2D
 
-@onready var animation_player = $AnimationPlayer
+@export var texture: Texture2D
 @export var health_component: HealthComponent
+
+@onready var animation_player = $AnimationPlayer
+@onready var cpu_particles_2d = $CPUParticles2D
+
 
 func _ready() -> void:
 	health_component.died.connect(on_health_component_died)
+	cpu_particles_2d.texture = texture
 
 
 func on_health_component_died() -> void:

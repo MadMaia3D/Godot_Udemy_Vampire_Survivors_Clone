@@ -13,5 +13,5 @@ func _process(delta):
 
 func update_animation() -> void:
 	var flip = sign(velocity.x)
-	if velocity.x != 0.0:
+	if flip != 0.0:
 		visual.scale.x = flip
