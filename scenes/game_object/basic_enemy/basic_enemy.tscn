@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://drw4x8jyi6eed"]
+[gd_scene load_steps=13 format=3 uid="uid://drw4x8jyi6eed"]
 
 [ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_t822g"]
 [ext_resource type="PackedScene" uid="uid://d0es24e6rkh5j" path="res://scenes/component/health_component.tscn" id="2_wqfwo"]
 [ext_resource type="PackedScene" uid="uid://dbthac618xo0g" path="res://scenes/component/vial_drop_component.tscn" id="3_i4f1s"]
+[ext_resource type="PackedScene" uid="uid://bqin2f52hm286" path="res://scenes/component/velocity_component.tscn" id="3_lfyog"]
 [ext_resource type="PackedScene" uid="uid://bke4jygbbry0t" path="res://scenes/component/death_component.tscn" id="4_5h82d"]
 [ext_resource type="Texture2D" uid="uid://dmd7qq4xarb1l" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="4_a0e4c"]
 [ext_resource type="PackedScene" uid="uid://deklgkp8kbyta" path="res://scenes/component/hurtbox_component.tscn" id="4_e536l"]
@@ -89,6 +90,9 @@ libraries = {
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_wqfwo")]
 max_health = 5.0
+
+[node name="VelocityComponent" parent="." instance=ExtResource("3_lfyog")]
+max_speed = 30.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_i4f1s")]
 health_component = NodePath("../HealthComponent")
