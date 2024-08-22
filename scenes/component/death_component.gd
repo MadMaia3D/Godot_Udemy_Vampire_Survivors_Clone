@@ -13,6 +13,8 @@ func _ready() -> void:
 
 
 func on_health_component_died() -> void:
+	if owner == null:
+		return
 	var owner_parent: Node2D = owner.get_parent()
 	var owner_global_position: Vector2 = owner.global_position
 	get_parent().remove_child(self)
