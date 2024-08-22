@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://drw4x8jyi6eed"]
+[gd_scene load_steps=16 format=3 uid="uid://drw4x8jyi6eed"]
 
 [ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_t822g"]
 [ext_resource type="PackedScene" uid="uid://d0es24e6rkh5j" path="res://scenes/component/health_component.tscn" id="2_wqfwo"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bke4jygbbry0t" path="res://scenes/component/death_component.tscn" id="4_5h82d"]
 [ext_resource type="Texture2D" uid="uid://dmd7qq4xarb1l" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="4_a0e4c"]
 [ext_resource type="PackedScene" uid="uid://deklgkp8kbyta" path="res://scenes/component/hurtbox_component.tscn" id="4_e536l"]
+[ext_resource type="PackedScene" uid="uid://bwmc80xjv73b2" path="res://scenes/component/hit_flash_component.tscn" id="5_wibst"]
+[ext_resource type="Shader" path="res://scenes/component/hit_flash_component_shader.gdshader" id="6_5sinp"]
 
 [sub_resource type="Animation" id="Animation_3q8dl"]
 length = 0.001
@@ -70,6 +72,11 @@ _data = {
 "default": SubResource("Animation_7twmt")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewyps"]
+resource_local_to_scene = true
+shader = ExtResource("6_5sinp")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2ieal"]
 radius = 11.0
 
@@ -96,6 +103,11 @@ acceleration = 1.0
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_i4f1s")]
 health_component = NodePath("../HealthComponent")
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("sprite_2d", "health_component") instance=ExtResource("5_wibst")]
+sprite_2d = NodePath("../Visuals/Sprite2D")
+health_component = NodePath("../HealthComponent")
+hit_material = SubResource("ShaderMaterial_ewyps")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_5h82d")]
 texture = ExtResource("4_a0e4c")
