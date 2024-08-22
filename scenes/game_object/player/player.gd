@@ -79,7 +79,8 @@ func on_damage_interval_timer_timeout():
 
 func on_health_changed() -> void:
 	update_health_display()
-	
+
+
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
 	if not upgrade is Ability:
 		return
