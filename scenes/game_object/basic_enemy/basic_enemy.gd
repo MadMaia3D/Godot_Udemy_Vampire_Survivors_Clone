@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var visual = $Visual
+@onready var visuals = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
 
 
@@ -14,4 +14,4 @@ func _process(delta):
 func update_animation() -> void:
 	var flip = sign(velocity.x)
 	if flip != 0.0:
-		visual.scale.x = flip
+		visuals.scale.x = -flip
