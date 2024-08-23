@@ -14,9 +14,9 @@ var damage_multiplier: float = 1.0
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
-	base_wait_time = timer.wait_time
-	player = get_tree().get_first_node_in_group("player") as Node2D
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	player = get_tree().get_first_node_in_group("player") as Node2D
+	base_wait_time = timer.wait_time
 
 
 func on_timer_timeout():
@@ -64,4 +64,5 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		timer.start()
 	elif upgrade.id == "sword_damage":
 		damage_multiplier = 1 + current_upgrades["sword_damage"]["quantity"] * 0.2
+		print("sword damage increased to " + str(damage_multiplier))
 
