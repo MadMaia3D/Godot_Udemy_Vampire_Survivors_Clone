@@ -4,7 +4,7 @@ signal upgrade_selected(upgrade: AbilityUpgrade)
 
 @export var upgrade_card_scene: PackedScene
 
-@onready var card_container: HBoxContainer = %CardContainer
+@onready var card_container: VBoxContainer = %CardContainer
 
 
 func _ready() -> void:

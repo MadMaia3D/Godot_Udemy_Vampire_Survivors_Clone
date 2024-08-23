@@ -1,7 +1,32 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://caa20bf4shron"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://caa20bf4shron"]
 
+[ext_resource type="Texture2D" uid="uid://die1remyq8n3s" path="res://resources/ui/ui.png" id="1_cihed"]
 [ext_resource type="FontFile" uid="uid://6cshd27y0aby" path="res://resources/themes/CelticTime.ttf" id="1_ho344"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tbnio"]
+content_margin_left = 1.0
+content_margin_top = 4.0
+content_margin_right = 1.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_cihed")
+texture_margin_left = 4.0
+texture_margin_top = 12.0
+texture_margin_right = 4.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npauc"]
+texture = ExtResource("1_cihed")
+texture_margin_left = 7.33779
+texture_margin_top = 6.89166
+texture_margin_right = 6.81078
+texture_margin_bottom = 6.54052
+region_rect = Rect2(0, 0, 16, 16)
 
 [resource]
 default_font = ExtResource("1_ho344")
 default_font_size = 32
+AlternatePanelContainer/base_type = &"PanelContainer"
+AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_tbnio")
+Label/constants/line_spacing = 0
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_npauc")
