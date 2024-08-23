@@ -23,6 +23,10 @@ func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
 
 
 func on_upgrade_selected(upgrade: AbilityUpgrade):
+	var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
+	animation_player.play("fade_out")
+	await animation_player.animation_finished
+
 	upgrade_selected.emit(upgrade)
 	get_tree().paused = false
 	queue_free()

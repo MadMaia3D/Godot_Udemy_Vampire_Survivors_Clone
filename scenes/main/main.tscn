@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" path="res://scenes/game_object/game_camera/game_camera.tscn" id="3_s4bw7"]
 [ext_resource type="PackedScene" uid="uid://v535yorsomgv" path="res://scenes/manager/upgrade_manager.tscn" id="6_qlywq"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" groups=["main"]]
 script = ExtResource("1_0tgv8")
 end_screen_scene = ExtResource("2_rc7c4")
 

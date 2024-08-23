@@ -63,7 +63,9 @@ func on_level_up(new_level: int) -> void:
 	var chosen_upgrades: Array[AbilityUpgrade] = pick_upgrades(2)
 	if chosen_upgrades.size() > 0:
 		var upgrade_scene_instance = upgrade_scene.instantiate()
-		add_child(upgrade_scene_instance)
+		var current_scene: Node = get_tree().current_scene
+		current_scene.add_child(upgrade_scene_instance)
+		current_scene.move_child(upgrade_scene_instance, 0)
 		upgrade_scene_instance.set_ability_upgrades(chosen_upgrades as Array[AbilityUpgrade])
 		upgrade_scene_instance.upgrade_selected.connect(on_upgrade_selected)
 
