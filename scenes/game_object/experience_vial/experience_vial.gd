@@ -28,7 +28,7 @@ func start_collecting() -> void:
 
 
 func collect() -> void:	
-	GameEvents.experience_vial_collected.emit(1)
+	GameEvents.experience_vial_collected.emit(10)
 	queue_free()
 
 

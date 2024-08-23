@@ -4,12 +4,12 @@ const MAX_RANGE: float = 150.0
 
 @export var sword_ability: PackedScene
 
-var damage = 5
-
-var base_wait_time: float
 var player: Node2D
+var base_wait_time: float
+var base_damage: float = 5.0
+var damage_multiplier: float = 1.0
 
-@onready var timer = $Timer
+@onready var timer: Timer = $Timer
 
 
 func _ready():
@@ -37,7 +37,7 @@ func spawn_sword_ability() -> void:
 	var sword_instance: SwordAbility = sword_ability.instantiate() as SwordAbility
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = damage
+	sword_instance.hitbox_component.damage = base_damage * damage_multiplier
 	sword_instance.global_position = target_enemy.global_position
 	var enemy_direction: Vector2 = target_enemy.global_position - player.global_position
 	sword_instance.rotation = enemy_direction.angle()
@@ -56,10 +56,12 @@ func sort_by_distance(a: Node2D, b: Node2D) -> bool:
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id != "sword_rate":
-		return
-	timer.wait_time *= 0.9
-	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-	var new_wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
-	timer.wait_time = new_wait_time
-	timer.start()
+	if upgrade.id == "sword_rate":
+		timer.wait_time *= 0.9
+		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
+		var new_wait_time = max(base_wait_time * (1 - percent_reduction), 0.1)
+		timer.wait_time = new_wait_time
+		timer.start()
+	elif upgrade.id == "sword_damage":
+		damage_multiplier = 1 + current_upgrades["sword_damage"]["quantity"] * 0.2
+
