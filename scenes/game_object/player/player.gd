@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 var number_colliding_bodies: int = 0
@@ -76,6 +77,7 @@ func on_damage_interval_timer_timeout():
 
 
 func on_health_changed() -> void:
+	GameEvents.player_damaged.emit()
 	update_health_display()
 
 
