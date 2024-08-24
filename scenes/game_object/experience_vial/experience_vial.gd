@@ -27,8 +27,10 @@ func start_collecting() -> void:
 	tween.tween_callback(collect)
 
 
-func collect() -> void:	
+func collect() -> void:
+	$RandomStreamPlayer2DComponent.play_random()
 	GameEvents.experience_vial_collected.emit(10)
+	await $RandomStreamPlayer2DComponent.finished
 	queue_free()
 
 
