@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://caa20bf4shron"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://caa20bf4shron"]
 
 [ext_resource type="Texture2D" uid="uid://die1remyq8n3s" path="res://resources/ui/ui.png" id="1_cihed"]
 [ext_resource type="FontFile" uid="uid://6cshd27y0aby" path="res://resources/themes/CelticTime.ttf" id="1_ho344"]
@@ -11,6 +11,32 @@ texture_margin_top = 12.0
 texture_margin_right = 4.0
 texture_margin_bottom = 12.0
 region_rect = Rect2(16, 0, 16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8i3s2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jb8n5"]
+texture = ExtResource("1_cihed")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(20, 20, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4706"]
+texture = ExtResource("1_cihed")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0yire"]
+texture = ExtResource("1_cihed")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npauc"]
 texture = ExtResource("1_cihed")
@@ -32,6 +58,14 @@ default_font = ExtResource("1_ho344")
 default_font_size = 32
 AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_tbnio")
+Button/colors/font_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/colors/font_focus_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/colors/font_hover_color = Color(0.741176, 0.423529, 0.290196, 1)
+Button/colors/font_pressed_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_8i3s2")
+Button/styles/hover = SubResource("StyleBoxTexture_jb8n5")
+Button/styles/normal = SubResource("StyleBoxTexture_s4706")
+Button/styles/pressed = SubResource("StyleBoxTexture_0yire")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_npauc")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h1vfq")
