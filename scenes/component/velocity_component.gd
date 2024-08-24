@@ -1,7 +1,7 @@
 class_name VelocityComponent
 extends Node
 
-@export var max_speed: float = 40
+@export var speed: float = 40
 @export var acceleration: float = 5
 
 var velocity: Vector2 = Vector2.ZERO
@@ -20,7 +20,7 @@ func accelerate_to_player() -> void:
 
 
 func accelerate_in_direction(direction: Vector2) -> void:
-	var desired_velocity = direction * max_speed
+	var desired_velocity = direction * speed
 	velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 
