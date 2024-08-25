@@ -48,10 +48,12 @@ script = ExtResource("1_ygqlg")
 
 [node name="VictoryAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_esu4h")
+volume_db = -10.0
 bus = &"music"
 
 [node name="DefeatAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3yynn")
+volume_db = -10.0
 bus = &"music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
