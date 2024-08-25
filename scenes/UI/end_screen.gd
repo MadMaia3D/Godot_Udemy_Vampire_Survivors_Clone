@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 func _ready():
-	get_tree().paused = true
+	GameEvents.pause_game()
 	%RestartButton.pressed.connect(on_restart_button_pressed)
 	%QuitButton.pressed.connect(on_quit_button_pressed)
 
@@ -28,7 +28,7 @@ func play_defeat_jingle() -> void:
 
 
 func on_restart_button_pressed() -> void:
-	get_tree().paused = false
+	GameEvents.unpause_game()
 	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
 
 

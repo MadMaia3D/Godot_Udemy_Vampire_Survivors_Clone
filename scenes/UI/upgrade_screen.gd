@@ -8,7 +8,7 @@ signal upgrade_selected(upgrade: AbilityUpgrade)
 
 
 func _ready() -> void:
-	get_tree().paused = true
+	GameEvents.pause_game()
 
 
 func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
@@ -28,5 +28,5 @@ func on_upgrade_selected(upgrade: AbilityUpgrade):
 	await animation_player.animation_finished
 
 	upgrade_selected.emit(upgrade)
-	get_tree().paused = false
+	GameEvents.unpause_game()
 	queue_free()
