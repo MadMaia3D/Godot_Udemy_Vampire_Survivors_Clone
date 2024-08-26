@@ -7,4 +7,4 @@ script = ExtResource("1_pdr46")
 id = "move_speed"
 max_quantity = 2
 name = "Move Speed"
-description = "Increases move speed by10%"
+description = "Increases move speed by 10%"
