@@ -17,6 +17,12 @@ func _ready():
 	update_ui()
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("pause"):
+		get_tree().root.set_input_as_handled()
+		back_pressed.emit()
+
+
 func update_ui() -> void:
 	sound_slider.value = get_bus_volume_percent("sfx")
 	music_slider.value = get_bus_volume_percent("music")
