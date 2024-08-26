@@ -15,10 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
-layout_mode = 2
-color = Color(0.247059, 0.14902, 0.192157, 1)
-
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
