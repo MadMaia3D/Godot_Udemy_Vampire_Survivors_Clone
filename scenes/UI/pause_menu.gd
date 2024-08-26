@@ -54,6 +54,8 @@ func on_options_pressed() -> void:
 
 
 func on_quit_pressed() -> void:
+	ScreenTransition.play_transition()
+	await ScreenTransition.transition_halfway
 	GameEvents.unpause_game()
 	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 
