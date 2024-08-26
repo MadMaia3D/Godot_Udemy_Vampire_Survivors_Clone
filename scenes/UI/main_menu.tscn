@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c66nboa6be6v1"]
+[gd_scene load_steps=4 format=3 uid="uid://c66nboa6be6v1"]
 
 [ext_resource type="PackedScene" uid="uid://cf40mybh5dnfq" path="res://scenes/UI/sound_button.tscn" id="1_detbt"]
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_lchi2"]
+[ext_resource type="Material" uid="uid://dkqpuvh7n3cdv" path="res://scenes/component/hit_flash_component_material.tres" id="3_mmej4"]
 
 [node name="MainMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_lchi2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("3_mmej4")
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
