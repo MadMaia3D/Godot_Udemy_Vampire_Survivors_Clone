@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://caa20bf4shron"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://caa20bf4shron"]
 
 [ext_resource type="Texture2D" uid="uid://die1remyq8n3s" path="res://resources/ui/ui.png" id="1_cihed"]
 [ext_resource type="FontFile" uid="uid://6cshd27y0aby" path="res://resources/themes/CelticTime.ttf" id="1_ho344"]
@@ -38,6 +38,56 @@ texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 region_rect = Rect2(4, 20, 8, 8)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72k45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t5plu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g55n7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rp8a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arbbk"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ebe30"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o5s31"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_p52lu"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_do2ej"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkn61"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55t86"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7g8s"]
+content_margin_left = 2.0
+content_margin_top = 6.0
+content_margin_right = 2.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npauc"]
 texture = ExtResource("1_cihed")
 texture_margin_left = 7.33779
@@ -66,7 +116,25 @@ Button/styles/focus = SubResource("StyleBoxEmpty_8i3s2")
 Button/styles/hover = SubResource("StyleBoxTexture_jb8n5")
 Button/styles/normal = SubResource("StyleBoxTexture_s4706")
 Button/styles/pressed = SubResource("StyleBoxTexture_0yire")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_72k45")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_t5plu")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_g55n7")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_0rp8a")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_arbbk")
+HSlider/icons/grabber = SubResource("PlaceholderTexture2D_ebe30")
+HSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_o5s31")
+HSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_p52lu")
+HSlider/icons/tick = SubResource("PlaceholderTexture2D_do2ej")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_hkn61")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_55t86")
+HSlider/styles/slider = SubResource("StyleBoxFlat_c7g8s")
 Label/constants/line_spacing = 0
+LabelDarkOutline/base_type = &"Label"
+LabelDarkOutline/colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
+LabelDarkOutline/constants/outline_size = 8
+LabelLightOutline/base_type = &"Label"
+LabelLightOutline/colors/font_outline_color = Color(0.345098, 0.388235, 0.486275, 1)
+LabelLightOutline/constants/outline_size = 8
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_npauc")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h1vfq")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_2l3ni")
