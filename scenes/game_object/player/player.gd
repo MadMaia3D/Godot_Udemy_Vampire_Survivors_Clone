@@ -34,6 +34,7 @@ func _process(delta):
 	var direction = movement_vector.normalized()
 	velocity_component.accelerate_in_direction(direction)
 	velocity_component.move(self)
+	update_animations(direction)
 
 
 func get_input_vector() -> Vector2:
