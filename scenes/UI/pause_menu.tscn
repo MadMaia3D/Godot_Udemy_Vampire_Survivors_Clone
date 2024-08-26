@@ -1,24 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://te5ce77hekod"]
+[gd_scene load_steps=6 format=3 uid="uid://te5ce77hekod"]
 
 [ext_resource type="Script" path="res://scenes/UI/pause_menu.gd" id="1_04qwn"]
 [ext_resource type="PackedScene" uid="uid://cf40mybh5dnfq" path="res://scenes/UI/sound_button.tscn" id="2_i3ajx"]
 
-[sub_resource type="Animation" id="Animation_2an65"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_d4m8b"]
+[sub_resource type="Animation" id="Animation_73v1u"]
 resource_name = "fade_in"
 length = 0.2
 tracks/0/type = "value"
@@ -31,12 +16,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0.25098)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.501961)]
 }
 
-[sub_resource type="Animation" id="Animation_gh8ty"]
-resource_name = "fade_out"
-length = 0.1
+[sub_resource type="Animation" id="Animation_8w33l"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,17 +28,16 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0, 0, 0, 0.501961)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmkyu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2r2c1"]
 _data = {
-"RESET": SubResource("Animation_2an65"),
-"fade_in": SubResource("Animation_d4m8b"),
-"fade_out": SubResource("Animation_gh8ty")
+"RESET": SubResource("Animation_8w33l"),
+"fade_in": SubResource("Animation_73v1u")
 }
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -62,12 +45,12 @@ process_mode = 3
 script = ExtResource("1_04qwn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fade_in"
 libraries = {
-"": SubResource("AnimationLibrary_hmkyu")
+"": SubResource("AnimationLibrary_2r2c1")
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0.501961)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
