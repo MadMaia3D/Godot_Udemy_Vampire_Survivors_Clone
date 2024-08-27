@@ -20,3 +20,4 @@ func on_player_died() -> void:
 	add_child(end_screen_instance)
 	end_screen_instance.set_defeat()
 	end_screen_instance.play_defeat_jingle()
+	MetaProgression.save_game()
