@@ -7,9 +7,11 @@ var save_data: Dictionary = {
 	"meta_upgrades": {}
 }
 
+
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_vial_collected)
 	load_save_file()
+	tree_exiting.connect(save_game)
 
 
 func save_game():
@@ -30,6 +32,7 @@ func add_meta_upgrade(upgrade: MetaUpgrade) -> void:
 			"quantity": 0
 			}
 	save_data["meta_upgrades"][upgrade.id]["quantity"] += 1
+	save_game()
 
 
 func on_experience_vial_collected(exp_value: float) -> void:
