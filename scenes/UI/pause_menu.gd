@@ -54,11 +54,8 @@ func on_options_pressed() -> void:
 
 
 func on_quit_pressed() -> void:
-	ScreenTransition.play_transition()
-	await ScreenTransition.transition_halfway
 	MetaProgression.save_game()
-	GameEvents.unpause_game()
-	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
+	ScreenTransition.transition_to_scene_and_unpause("res://scenes/UI/main_menu.tscn")
 
 
 func on_options_back_pressed(options_menu: Node) -> void:

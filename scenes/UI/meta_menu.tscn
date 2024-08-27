@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr0yix51105kf"]
+[gd_scene load_steps=5 format=3 uid="uid://cr0yix51105kf"]
 
 [ext_resource type="Script" path="res://scenes/UI/meta_menu.gd" id="1_vjag1"]
 [ext_resource type="Resource" uid="uid://hivoh3u407d8" path="res://resources/meta_upgrades/experience_gain.tres" id="2_punen"]
+[ext_resource type="PackedScene" uid="uid://yd40k6a16dsd" path="res://scenes/UI/meta_upgrade_card.tscn" id="3_6giss"]
+[ext_resource type="PackedScene" uid="uid://cf40mybh5dnfq" path="res://scenes/UI/sound_button.tscn" id="3_ltu0v"]
 
 [node name="MetaMenu" type="CanvasLayer"]
 process_mode = 3
@@ -23,6 +25,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 0
+
+[node name="BackButton" parent="MarginContainer" instance=ExtResource("3_ltu0v")]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -31,3 +44,21 @@ size_flags_vertical = 4
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 3
+
+[node name="MetaUpgradeCard" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard2" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard3" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard4" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard5" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard6" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2

@@ -28,14 +28,10 @@ func play_defeat_jingle() -> void:
 
 
 func on_restart_button_pressed() -> void:
-	ScreenTransition.play_transition()
-	await ScreenTransition.transition_halfway
-	GameEvents.unpause_game()
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	MetaProgression.save_game()
+	ScreenTransition.transition_to_scene_and_unpause("res://scenes/main/main.tscn")
 
 
 func on_quit_button_pressed() -> void:
-	ScreenTransition.play_transition()
-	await ScreenTransition.transition_halfway
-	GameEvents.unpause_game()
-	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
+	MetaProgression.save_game()
+	ScreenTransition.transition_to_scene_and_unpause("res://scenes/UI/main_menu.tscn")

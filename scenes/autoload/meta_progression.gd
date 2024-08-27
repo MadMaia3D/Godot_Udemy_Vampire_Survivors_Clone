@@ -35,5 +35,12 @@ func add_meta_upgrade(upgrade: MetaUpgrade) -> void:
 	save_game()
 
 
+func get_upgrade_current_quantity(upgrade: MetaUpgrade) -> int:
+	var current_quantity = 0
+	if save_data["meta_upgrades"].has(upgrade.id):
+		current_quantity = save_data["meta_upgrades"][upgrade.id]["quantity"]
+	return current_quantity
+
+
 func on_experience_vial_collected(exp_value: float) -> void:
 	save_data["meta_upgrades_currency"] += exp_value
