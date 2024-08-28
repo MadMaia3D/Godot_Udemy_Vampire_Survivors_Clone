@@ -78,7 +78,7 @@ _data = {
 "default": SubResource("Animation_7twmt")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_43fxx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooa2k"]
 resource_local_to_scene = true
 shader = ExtResource("6_5sinp")
 shader_parameter/lerp_percent = 0.0
@@ -116,7 +116,7 @@ health_component = NodePath("../HealthComponent")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("sprite_2d", "health_component") instance=ExtResource("5_wibst")]
 sprite_2d = NodePath("../Visuals/Sprite2D")
 health_component = NodePath("../HealthComponent")
-hit_material = SubResource("ShaderMaterial_43fxx")
+hit_material = SubResource("ShaderMaterial_ooa2k")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_5h82d")]
 texture = ExtResource("4_a0e4c")

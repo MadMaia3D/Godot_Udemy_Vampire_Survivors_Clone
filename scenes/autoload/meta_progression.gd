@@ -35,10 +35,10 @@ func add_meta_upgrade(upgrade: MetaUpgrade) -> void:
 	save_game()
 
 
-func get_upgrade_current_quantity(upgrade: MetaUpgrade) -> int:
+func get_upgrade_quantity(upgrade_id: String) -> int:
 	var current_quantity = 0
-	if save_data["meta_upgrades"].has(upgrade.id):
-		current_quantity = save_data["meta_upgrades"][upgrade.id]["quantity"]
+	if save_data["meta_upgrades"].has(upgrade_id):
+		current_quantity = save_data["meta_upgrades"][upgrade_id]["quantity"]
 	return current_quantity
 
 

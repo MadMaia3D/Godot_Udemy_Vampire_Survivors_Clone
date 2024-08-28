@@ -25,7 +25,7 @@ func set_meta_upgrade(upgrade: MetaUpgrade) -> void:
 
 func upgrade_progress_info() -> void:
 	var user_current_currency: int = MetaProgression.save_data["meta_upgrades_currency"]
-	var upgrade_current_quantity: int = MetaProgression.get_upgrade_current_quantity(upgrade)
+	var upgrade_current_quantity: int = MetaProgression.get_upgrade_quantity(upgrade.id)
 	var upgrade_reached_max: bool = upgrade_current_quantity >= upgrade.max_quantity
 	var percent: float = float(user_current_currency) / upgrade.experience_cost
 	
