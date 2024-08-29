@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://caa20bf4shron"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://caa20bf4shron"]
 
 [ext_resource type="Texture2D" uid="uid://die1remyq8n3s" path="res://resources/ui/ui.png" id="1_cihed"]
 [ext_resource type="FontFile" uid="uid://6cshd27y0aby" path="res://resources/themes/CelticTime.ttf" id="1_ho344"]
@@ -68,7 +68,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55t86"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhsq7"]
 bg_color = Color(0.996078, 0.682353, 0.203922, 1)
 border_width_left = 2
 border_width_top = 2
@@ -103,6 +103,37 @@ bg_color = Color(0.247059, 0.14902, 0.192157, 1)
 bg_color = Color(0.909804, 0.270588, 0.215686, 1)
 border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4aqm6"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vasg"]
+bg_color = Color(0.996078, 0.682353, 0.203922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy3o0"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqf4b"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.0472, 0.0625067, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 default_font = ExtResource("1_ho344")
 default_font_size = 32
@@ -126,7 +157,7 @@ HSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_o5s31")
 HSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_p52lu")
 HSlider/icons/tick = SubResource("PlaceholderTexture2D_do2ej")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_hkn61")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_55t86")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_hhsq7")
 HSlider/styles/slider = SubResource("StyleBoxFlat_c7g8s")
 Label/constants/line_spacing = 0
 LabelDarkOutline/base_type = &"Label"
@@ -138,3 +169,7 @@ LabelLightOutline/constants/outline_size = 8
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_npauc")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h1vfq")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_2l3ni")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_4aqm6")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_6vasg")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_wy3o0")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_pqf4b")

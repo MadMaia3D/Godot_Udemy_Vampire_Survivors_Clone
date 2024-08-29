@@ -19,25 +19,38 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.247059, 0.14902, 0.192157, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 0
 
-[node name="BackButton" parent="MarginContainer" instance=ExtResource("3_ltu0v")]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 24
+
+[node name="BackButton" parent="HBoxContainer/MarginContainer" instance=ExtResource("3_ltu0v")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Back"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -45,20 +58,29 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 3
 
-[node name="MetaUpgradeCard" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+[node name="MetaUpgradeCard" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard2" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+[node name="MetaUpgradeCard2" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard3" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+[node name="MetaUpgradeCard3" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard4" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+[node name="MetaUpgradeCard4" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard5" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+[node name="MetaUpgradeCard5" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard6" parent="MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+[node name="MetaUpgradeCard6" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard7" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard8" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard9" parent="HBoxContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_6giss")]
 layout_mode = 2
